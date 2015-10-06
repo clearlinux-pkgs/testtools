@@ -4,7 +4,7 @@
 #
 Name     : testtools
 Version  : 1.8.0
-Release  : 14
+Release  : 15
 URL      : https://pypi.python.org/packages/source/t/testtools/testtools-1.8.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/t/testtools/testtools-1.8.0.tar.gz
 Summary  : Extensions to the Python standard library unit testing framework
