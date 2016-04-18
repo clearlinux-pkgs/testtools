@@ -1,6 +1,24 @@
 CHANGES
 =======
 
+2.1.0
+-----
+
+* Release 2.1.0
+* Correct docs for skip deprecation
+* Add matchers for detecting emitted warnings
+* Revert usage of pyrsistent
+* Add unique_text_generator
+* Become compatible with newer Fixtures _setUp() API
+* Better handling of KeyboardInterrupt
+* Fix example in docstring for `failed`
+* Move all Twisted code to twistedsupport package
+* Revert "Move all Twisted code to twistedsupport package"
+* Move all Twisted code to twistedsupport package
+* Add Always & Never matchers
+* Support TestResults without stop/shouldStop
+* Stop using deprecated `skip()` internally
+
 2.0.0
 -----
 
@@ -432,7 +450,7 @@ testtools-0.9.30
 * Adds a CopyStreamResult which copies StreamResult events to multiple outputs
 * Adds a recording StreamResult for writing tests with
 * This defines a new sort of TestResult, StreamResult
-* Add a helper for decorating the result object given to ``case.(__call__/run)`` - DecorateTestCaseResult
+* Add a helper for decorating the result object given to ``case.(__call__/run
 * Add support for timestamp events to Placeholder objects
 * Placeholder couldn't hold tags, which limits its use
 * The error message for setUp and tearDown upcall errors was broken on Python 3.4. (Monty Taylor, Robert Collins, #1140688)
