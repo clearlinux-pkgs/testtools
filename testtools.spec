@@ -4,7 +4,7 @@
 #
 Name     : testtools
 Version  : 2.1.0
-Release  : 20
+Release  : 21
 URL      : https://pypi.python.org/packages/source/t/testtools/testtools-2.1.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/t/testtools/testtools-2.1.0.tar.gz
 Summary  : Extensions to the Python standard library unit testing framework
