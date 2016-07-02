@@ -3,8 +3,17 @@ testtools NEWS
 
 Changes and improvements to testtools_, grouped by release.
 
-Next
+NEXT
 ~~~~
+
+2.2.0
+~~~~~
+
+Improvements
+------------
+
+* Twisted support code uses ``inlineCallbacks`` rather than the deprecated
+  ``deferredGenerator``.  (Tristan Seligmann)
 
 2.1.0
 ~~~~~
