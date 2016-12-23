@@ -4,7 +4,7 @@
 #
 Name     : testtools
 Version  : 2.2.0
-Release  : 24
+Release  : 25
 URL      : http://pypi.debian.net/testtools/testtools-2.2.0.tar.gz
 Source0  : http://pypi.debian.net/testtools/testtools-2.2.0.tar.gz
 Summary  : Extensions to the Python standard library unit testing framework
