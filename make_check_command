@@ -1,1 +1,0 @@
-python -m subunit.run testtools.tests.test_suite | subunit2pyunit 

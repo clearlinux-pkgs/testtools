@@ -4,7 +4,7 @@
 #
 Name     : testtools
 Version  : 2.2.0
-Release  : 26
+Release  : 27
 URL      : http://pypi.debian.net/testtools/testtools-2.2.0.tar.gz
 Source0  : http://pypi.debian.net/testtools/testtools-2.2.0.tar.gz
 Summary  : Extensions to the Python standard library unit testing framework
@@ -12,6 +12,8 @@ Group    : Development/Tools
 License  : MIT
 Requires: testtools-python
 BuildRequires : extras
+BuildRequires : fixtures-python
+BuildRequires : linecache2-python
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : python-dev
@@ -29,6 +31,7 @@ There is little here for anyone except a testtools contributor.
 %package python
 Summary: python components for the testtools package.
 Group: Default
+Requires: fixtures-python
 
 %description python
 python components for the testtools package.
@@ -46,7 +49,7 @@ python3 setup.py build -b py3
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-python -m subunit.run testtools.tests.test_suite | subunit2pyunit
+PYTHONPATH=%{buildroot}/usr/lib/python2.7/site-packages python2 setup.py test
 %install
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot}
