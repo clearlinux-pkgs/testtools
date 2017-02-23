@@ -6,7 +6,7 @@
 #
 Name     : testtools
 Version  : 2.2.0
-Release  : 28
+Release  : 29
 URL      : http://pypi.debian.net/testtools/testtools-2.2.0.tar.gz
 Source0  : http://pypi.debian.net/testtools/testtools-2.2.0.tar.gz
 Source99 : http://pypi.debian.net/testtools/testtools-2.2.0.tar.gz.asc
@@ -14,8 +14,15 @@ Summary  : Extensions to the Python standard library unit testing framework
 Group    : Development/Tools
 License  : MIT
 Requires: testtools-python
+Requires: extras
+Requires: fixtures
+Requires: pbr
+Requires: python-mimeparse
+Requires: six
+Requires: testscenarios
+Requires: traceback2
+Requires: unittest2
 BuildRequires : extras
-BuildRequires : fixtures-python
 BuildRequires : linecache2-python
 BuildRequires : pbr
 BuildRequires : pip
@@ -34,7 +41,6 @@ There is little here for anyone except a testtools contributor.
 %package python
 Summary: python components for the testtools package.
 Group: Default
-Requires: fixtures-python
 
 %description python
 python components for the testtools package.
@@ -45,7 +51,7 @@ python components for the testtools package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1484580474
+export SOURCE_DATE_EPOCH=1487877212
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -55,7 +61,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 PYTHONPATH=%{buildroot}/usr/lib/python2.7/site-packages python2 setup.py test
 %install
-export SOURCE_DATE_EPOCH=1484580474
+export SOURCE_DATE_EPOCH=1487877212
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
