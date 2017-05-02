@@ -6,7 +6,7 @@
 #
 Name     : testtools
 Version  : 2.2.0
-Release  : 29
+Release  : 30
 URL      : http://pypi.debian.net/testtools/testtools-2.2.0.tar.gz
 Source0  : http://pypi.debian.net/testtools/testtools-2.2.0.tar.gz
 Source99 : http://pypi.debian.net/testtools/testtools-2.2.0.tar.gz.asc
