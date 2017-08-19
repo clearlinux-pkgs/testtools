@@ -1,6 +1,18 @@
 CHANGES
 =======
 
+2.3.0
+-----
+
+* Release 2.3.0
+* Add ResourcedToStreamDecorator test result decorator for testresources integration (#243)
+* Make KeysEqual usable with no arguments, i.e. match a dict with no keys. (#241)
+* Add testtools.assertions to the documented API modules (#257)
+* Add Python 3.6 to the list of Travis targets (#255)
+* Don't add file details without content (#252)
+* Don't run Sphinx on Travis Python 3.3 target (#250)
+* Make twistedsupport and tests work on Python 3
+
 2.2.0
 -----
 
