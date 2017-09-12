@@ -6,7 +6,7 @@
 #
 Name     : testtools
 Version  : 2.3.0
-Release  : 34
+Release  : 35
 URL      : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz
 Source0  : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz
 Source99 : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz.asc
@@ -64,7 +64,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1505182275
+export SOURCE_DATE_EPOCH=1505225993
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -74,7 +74,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 PYTHONPATH=%{buildroot}/usr/lib/python3.6/site-packages python3 setup.py test || :
 %install
-export SOURCE_DATE_EPOCH=1505182275
+export SOURCE_DATE_EPOCH=1505225993
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
