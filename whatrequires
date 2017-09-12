@@ -454,7 +454,7 @@ traitlets-0:4.3.2-5.src
 typing-0:3.6.2-2.src
 tzlocal-0:1.4-4.src
 uhttpmock-0:0.5.1-4.src
-unittest2-0:1.1.0-35.src
+unittest2-0:1.1.0-36.src
 upower-0:0.99.6-13.src
 urlgrabber-0:3.10.2-21.src
 urllib3-0:1.22-45.src
