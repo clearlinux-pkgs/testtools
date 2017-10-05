@@ -6,7 +6,7 @@
 #
 Name     : testtools
 Version  : 2.3.0
-Release  : 37
+Release  : 38
 URL      : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz
 Source0  : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz
 Source99 : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz.asc
@@ -14,6 +14,7 @@ Summary  : Extensions to the Python standard library unit testing framework
 Group    : Development/Tools
 License  : MIT
 Requires: testtools-legacypython
+Requires: testtools-python3
 Requires: testtools-python
 Requires: extras
 Requires: fixtures
@@ -42,6 +43,7 @@ There is little here for anyone except a testtools contributor.
 %package legacypython
 Summary: legacypython components for the testtools package.
 Group: Default
+Requires: python-core
 
 %description legacypython
 legacypython components for the testtools package.
@@ -51,9 +53,19 @@ legacypython components for the testtools package.
 Summary: python components for the testtools package.
 Group: Default
 Requires: testtools-legacypython
+Requires: testtools-python3
 
 %description python
 python components for the testtools package.
+
+
+%package python3
+Summary: python3 components for the testtools package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the testtools package.
 
 
 %prep
@@ -64,7 +76,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1505450244
+export SOURCE_DATE_EPOCH=1507179871
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -74,7 +86,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 PYTHONPATH=%{buildroot}/usr/lib/python3.6/site-packages python3 setup.py test || :
 %install
-export SOURCE_DATE_EPOCH=1505450244
+export SOURCE_DATE_EPOCH=1507179871
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -90,5 +102,8 @@ echo ----[ mark ]----
 /usr/lib/python2*/*
 
 %files python
+%defattr(-,root,root,-)
+
+%files python3
 %defattr(-,root,root,-)
 /usr/lib/python3*/*
