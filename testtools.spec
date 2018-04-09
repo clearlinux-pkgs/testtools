@@ -6,14 +6,13 @@
 #
 Name     : testtools
 Version  : 2.3.0
-Release  : 41
+Release  : 42
 URL      : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz
 Source0  : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz
 Source99 : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz.asc
 Summary  : Extensions to the Python standard library unit testing framework
 Group    : Development/Tools
 License  : MIT
-Requires: testtools-legacypython
 Requires: testtools-python3
 Requires: testtools-python
 Requires: extras
@@ -40,19 +39,9 @@ BuildRequires : unittest2
 These are scripts to help with building, maintaining and releasing testtools.
 There is little here for anyone except a testtools contributor.
 
-%package legacypython
-Summary: legacypython components for the testtools package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the testtools package.
-
-
 %package python
 Summary: python components for the testtools package.
 Group: Default
-Requires: testtools-legacypython
 Requires: testtools-python3
 
 %description python
@@ -76,8 +65,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1507179871
-python2 setup.py build -b py2
+export SOURCE_DATE_EPOCH=1523308950
 python3 setup.py build -b py3
 
 %check
@@ -86,20 +74,14 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 PYTHONPATH=%{buildroot}/usr/lib/python3.6/site-packages python3 setup.py test || :
 %install
-export SOURCE_DATE_EPOCH=1507179871
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
-
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
 
 %files python
 %defattr(-,root,root,-)
