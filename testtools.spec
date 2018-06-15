@@ -27,7 +27,7 @@ Requires: unittest2
 BuildRequires : extras
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
+
 BuildRequires : python-mimeparse
 BuildRequires : python3-dev
 BuildRequires : setuptools
