@@ -6,7 +6,7 @@
 #
 Name     : testtools
 Version  : 2.3.0
-Release  : 57
+Release  : 58
 URL      : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz
 Source0  : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz
 Source99 : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz.asc
