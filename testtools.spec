@@ -6,43 +6,49 @@
 #
 Name     : testtools
 Version  : 2.3.0
-Release  : 59
+Release  : 60
 URL      : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz
 Source0  : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz
-Source99 : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz.asc
+Source1  : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz.asc
 Summary  : Extensions to the Python standard library unit testing framework
 Group    : Development/Tools
 License  : MIT
-Requires: testtools-python3
-Requires: testtools-python
+Requires: testtools-license = %{version}-%{release}
+Requires: testtools-python = %{version}-%{release}
+Requires: testtools-python3 = %{version}-%{release}
 Requires: extras
 Requires: fixtures
 Requires: pbr
 Requires: python-mimeparse
 Requires: six
-Requires: testresources
-Requires: testscenarios
 Requires: traceback2
 Requires: unittest2
+BuildRequires : buildreq-distutils3
 BuildRequires : extras
+BuildRequires : fixtures
 BuildRequires : pbr
-BuildRequires : pip
-
 BuildRequires : python-mimeparse
-BuildRequires : python3-dev
-BuildRequires : setuptools
 BuildRequires : six
 BuildRequires : testtools
+BuildRequires : traceback2
 BuildRequires : unittest2
 
 %description
 These are scripts to help with building, maintaining and releasing testtools.
 There is little here for anyone except a testtools contributor.
 
+%package license
+Summary: license components for the testtools package.
+Group: Default
+
+%description license
+license components for the testtools package.
+
+
 %package python
 Summary: python components for the testtools package.
 Group: Default
-Requires: testtools-python3
+Requires: testtools-python3 = %{version}-%{release}
 
 %description python
 python components for the testtools package.
@@ -52,6 +58,7 @@ python components for the testtools package.
 Summary: python3 components for the testtools package.
 Group: Default
 Requires: python3-core
+Provides: pypi(testtools)
 
 %description python3
 python3 components for the testtools package.
@@ -59,29 +66,44 @@ python3 components for the testtools package.
 
 %prep
 %setup -q -n testtools-2.3.0
+cd %{_builddir}/testtools-2.3.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1523308950
-python3 setup.py build -b py3
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1582911238
+# -Werror is for werrorists
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %check
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-PYTHONPATH=%{buildroot}/usr/lib/python3.6/site-packages python3 setup.py test || :
+PYTHONPATH=%{buildroot}$(python -c "import sys; print(sys.path[-1])") python setup.py test || :
 %install
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/testtools
+cp %{_builddir}/testtools-2.3.0/LICENSE %{buildroot}/usr/share/package-licenses/testtools/6830df2fe805c26be8f114e4b8635505d6c7d766
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/testtools/6830df2fe805c26be8f114e4b8635505d6c7d766
 
 %files python
 %defattr(-,root,root,-)
