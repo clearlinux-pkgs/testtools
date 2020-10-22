@@ -1,18 +1,12 @@
 # This file contains recursive sources that require this package
 astunparse
 fasteners
-gabbi
-hacking
+fixtures
 linecache2
-os-testr
-oslotest
 python-subunit
 requests-mock
-stestr
 subunit
-tempest
 testrepository
 testscenarios
 testtools
 traceback2
-unicodecsv

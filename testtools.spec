@@ -6,7 +6,7 @@
 #
 Name     : testtools
 Version  : 2.3.0
-Release  : 61
+Release  : 62
 URL      : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz
 Source0  : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz
 Source1  : http://pypi.debian.net/testtools/testtools-2.3.0.tar.gz.asc
@@ -59,6 +59,13 @@ Summary: python3 components for the testtools package.
 Group: Default
 Requires: python3-core
 Provides: pypi(testtools)
+Requires: pypi(extras)
+Requires: pypi(fixtures)
+Requires: pypi(pbr)
+Requires: pypi(python_mimeparse)
+Requires: pypi(six)
+Requires: pypi(traceback2)
+Requires: pypi(unittest2)
 
 %description python3
 python3 components for the testtools package.
@@ -73,12 +80,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582911238
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1603405986
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
