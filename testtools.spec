@@ -4,7 +4,7 @@
 #
 Name     : testtools
 Version  : 2.4.0
-Release  : 69
+Release  : 70
 URL      : https://files.pythonhosted.org/packages/11/9a/26b2f192024c4abcf702750ce7f4eb4cad305d8aad9482d9b5f3760118c7/testtools-2.4.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/11/9a/26b2f192024c4abcf702750ce7f4eb4cad305d8aad9482d9b5f3760118c7/testtools-2.4.0.tar.gz
 Summary  : Extensions to the Python standard library unit testing framework
