@@ -4,7 +4,7 @@
 #
 Name     : testtools
 Version  : 2.5.0
-Release  : 75
+Release  : 76
 URL      : https://files.pythonhosted.org/packages/29/0f/99dbb1801e341d74cd74e493906a16d8ddffffa86879d90ac3dc1f367b13/testtools-2.5.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/29/0f/99dbb1801e341d74cd74e493906a16d8ddffffa86879d90ac3dc1f367b13/testtools-2.5.0.tar.gz
 Summary  : Extensions to the Python standard library unit testing framework
@@ -28,7 +28,6 @@ BuildRequires : six
 BuildRequires : testscenarios
 BuildRequires : testtools
 BuildRequires : tox
-BuildRequires : unittest2
 BuildRequires : virtualenv
 
 %description
@@ -74,7 +73,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1630688533
+export SOURCE_DATE_EPOCH=1636406201
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
